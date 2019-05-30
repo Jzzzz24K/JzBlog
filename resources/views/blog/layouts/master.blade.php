@@ -13,22 +13,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
-<body style="
-        background-image: url('{{ page_image('4bd4eccad812da37cffecfdb50beb0e1.jpg') }}');
-        background-repeat: no-repeat;
-        background-size: cover;
-        ">
+<body class="jz-body">
     @include('blog.partials.page-nav')
 
     @yield('page-header')
 
     @yield('content')
-
-    @include('blog.partials.page-footer')
-
-
 {{-- Scripts --}}
 <script src="{{ asset('js/app.js') }}"></script>
 @yield('scripts')
+
 </body>
+@include('blog.partials.page-footer')
+
 </html>
