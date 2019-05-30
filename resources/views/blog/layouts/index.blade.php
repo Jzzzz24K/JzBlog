@@ -48,7 +48,7 @@
                                              src="{{ page_image('home-bg.jpg') }}" alt="Card image">
                                         <div class="card-img-overlay">
                                             <p class="text-center" style="color: gray;font-family:Roboto,Open Sans, sans-serif">2019年5月10日</p>
-                                            <p class="card-text text-center" style="font-size: xx-large;font-family: Roboto,Open Sans, sans-serif;font-weight: 300">
+                                            <p class="card-text text-center" style="font-size: 3vw;;font-family: Roboto,Open Sans, sans-serif;font-weight: 300">
                                                 Laravel+bootstrap构建易博客</p>
                                             <p class="card-text text-center" style="font-size: x-large;">
                                                 php,laravel,bootstrap</p>
