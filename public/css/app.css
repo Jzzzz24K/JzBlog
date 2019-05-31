@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -17108,44 +17108,57 @@ footer .copyright {
   padding: 25px 35px;
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.jz-body {
+  background-image: url("/storage/uploads/4bd4eccad812da37cffecfdb50beb0e1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-.intro-header .post-heading .meta a,
-article a {
-  text-decoration: underline;
-}
-
-h2 {
-  padding-top: 22px;
-}
-
-h3 {
-  padding-top: 15px;
-}
-
-h2 + p,
-h3 + p,
-h4 + p {
-  margin-top: 5px;
-}
-
-.caption-title {
-  margin-bottom: 5px;
-}
-
-.caption-title + p {
-  margin-top: 0;
-}
-
-dt {
-  margin-bottom: 5px;
-}
-
-dd {
-  margin-left: 30px;
+#card {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
   margin-bottom: 10px;
+  max-height: 280px;
+  overflow: hidden;
+}
+
+#card:hover {
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.img-card {
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.8;
+  overflow: hidden;
+}
+
+.jz-img-text {
+  position: relative;
+  letter-spacing: 1.5px;
+  top: 15%;
+}
+
+.jz-img-text span {
+  font-size: 2rem;
+}
+
+.jz-img-text h5 {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.jz-blog-title {
+  font-size: xx-large;
+}
+
+.jz-blog-tag {
+  font-size: 1rem;
+  color: #fff !important;
 }
 
