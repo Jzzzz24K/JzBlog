@@ -1,7 +1,5 @@
 @extends('blog.layouts.master')
 
-
-
 @section('page-header')
     <div class="container">
         <div class="row justify-content-md-center">

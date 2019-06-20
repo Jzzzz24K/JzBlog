@@ -22,7 +22,7 @@
 @stop
 
 @section('page-header')
-    <div class="container ">
+    <div class="container-fluid">
         <div class="row justify-content-md-center">
 
             <div class="card border-0 jz-post-header">

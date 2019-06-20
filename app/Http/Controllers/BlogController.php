@@ -36,3 +36,4 @@ class BlogController extends Controller
         return view($post->layout, compact('post', 'tag'));
     }
 }
+
