@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Services\Markdowner;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Intervention\Image\Facades\Image;
 
 class Post extends Model
 {
@@ -23,6 +24,12 @@ class Post extends Model
             $this->attributes['slug'] = str_slug($value);
         }
     }
+
+//    public function getGdPageImageAttribute($value)
+//    {
+//        $img = Image::make($this->page_image)->resize(1000, 200);
+//        return $img->response('jpg');
+//    }
     
     public function tags()
     {

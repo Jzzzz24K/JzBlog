@@ -9,30 +9,39 @@
 
         .jz-post-header {
             {{--background-image: url("{{page_image($post->page_image)}}");--}}
-            background-size: cover;
+               background-size: cover;
             background-attachment: fixed;
-            background:no-repeat center center;
-            background-attachment:scroll;
+            background: no-repeat center center;
+            background-attachment: scroll;
         }
-        .jz-post-image{
+
+        .jz-post-image {
             opacity: 0.5;
         }
 
+        .title-image {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            background-image: url({{$post->page_image}});
+            /*background-image: url('/storage/uploads/背影.jpg');*/
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+        }
     </style>
 @stop
 
 @section('page-header')
-    <div class="container-fluid">
-        <div class="row justify-content-md-center">
 
-            <div class="card border-0 jz-post-header">
-                <img class="card-img-top jz-post-image " src="{{page_image($post->page_image)}}" alt="Card image cap">
-                <div class="card-img-overlay">
-                    <h3 class="card-title">{{$post->title}}</h3>
-                    <h5 class="card-text">{{$post->subtitle}}</h5>
-                </div>
+    <div class="card border-0 jz-post-header">
+        <div class="title-image"> </div>
+        <div class="card-img-overlay" style="top:40%">
+                <h3 class="card-title text-center align-middle">{{$post->title}}</h3>
+                <h5 class="card-text text-center">{{$post->subtitle}}</h5>
             </div>
-        </div>
+
     </div>
 
 @stop
