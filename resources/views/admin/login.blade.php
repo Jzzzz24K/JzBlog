@@ -22,12 +22,12 @@
                             </div>
                         </div>
                         <div class="form-group row text-center">
-                            <label for="authCode" class="col-sm-3 col-form-label">验证码</label>
+                            <label for="captcha" class="col-sm-3 col-form-label">验证码</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="authCode">
+                                <input type="text" class="form-control" name="captcha" required>
                             </div>
                             <div class="col-sm-5">
-                                {{captcha()}}
+                                {{captcha_img()}}
                             </div>
                         </div>
                         <div class="form-group row">
