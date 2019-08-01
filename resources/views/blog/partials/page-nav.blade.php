@@ -18,7 +18,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     @foreach($tags as $tag)
-                    <a class="dropdown-item" href="#">{{$tag['tag']}}</a>
+                    <a class="dropdown-item" href="/blog?tag={{$tag['tag']}}">{{$tag['tag']}}</a>
                     @endforeach()
                 </div>
             </div>
