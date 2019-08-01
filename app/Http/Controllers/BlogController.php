@@ -15,8 +15,8 @@ class BlogController extends Controller
         $tag = $request->get('tag');
         $postService = new PostService($tag);
         $data = $postService->lists();
-//        dd($data);
         $layout = $tag ? Tag::layout($tag) : 'blog.layouts.index';
+        $data['tags'] = Tag::all()->toArray();
         return view($layout, $data);
     }
     

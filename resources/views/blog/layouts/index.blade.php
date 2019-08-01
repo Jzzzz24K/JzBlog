@@ -1,4 +1,4 @@
-@extends('blog.layouts.master')
+@extends('blog.layouts.master',$tags)
 
 
 @section('page-header')

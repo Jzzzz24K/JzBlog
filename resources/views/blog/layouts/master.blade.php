@@ -15,7 +15,7 @@
 </head>
 <body @if (Request::is('blog')) class="jz-body" @endif>
 <div @if (Request::is('blog/*')) style="border-top:10px;border-style: solid;border-color:rgb(163,130,155);" @endif></div>
-@include('blog.partials.page-nav')
+@include('blog.partials.page-nav',$tags)
 
 
 @yield('page-header')
