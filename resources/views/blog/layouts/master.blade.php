@@ -13,13 +13,15 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
-<body @if (Request::is('blog')) class="jz-body" @endif>
-<div @if (Request::is('blog/*')) style="border-top:10px;border-style: solid;border-color:rgb(163,130,155);" @endif></div>
-@include('blog.partials.page-nav',$tags)
-
-
-@yield('page-header')
-
+<body
+    @if (Request::is('blog')) class="jz-body" @endif
+>
+<div
+    @if (Request::is('blog/*')) style="border-top:10px;border-style: solid;border-color:rgb(163,130,155);" @endif></div>
+<div @if (Request::is('workLog/index')) class="jz-worklog" @endif>
+    @include('blog.partials.page-nav',$tags)
+    @yield('page-header')
+</div>
 @yield('content')
 {{-- Scripts --}}
 <script src="{{ asset('js/app.js') }}"></script>

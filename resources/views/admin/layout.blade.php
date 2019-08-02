@@ -47,6 +47,14 @@
                         style="margin-left: 20px">
                         <a class="nav-link" href="/admin/upload">上传</a>
                     </li>
+                    <li @if(Request::is('admin/workLog*'))
+                        class="nav-item active"
+                        @else
+                        class="nav-item"
+                        @endif
+                        style="margin-left: 20px">
+                        <a class="nav-link" href="/admin/workLog">工作日志</a>
+                    </li>
                 </ul>
             </div>
         @endauth

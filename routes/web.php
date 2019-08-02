@@ -21,6 +21,8 @@ Route::get('blog', 'BlogController@index');
 
 Route::get('blog/{slug}', 'BlogController@showPost')->name('blog.show');
 
+Route::get('workLog/index','WorkLogController@index');
+
 //后台
 Route::middleware('auth')->namespace('Admin')->group(function () {
     Route::get('admin', 'PostController@index');

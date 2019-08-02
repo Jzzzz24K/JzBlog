@@ -1,6 +1,5 @@
 @extends('blog.layouts.master',$tags)
 
-
 @section('page-header')
     <div class="container">
         <div class="row justify-content-md-center">
