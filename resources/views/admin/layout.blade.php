@@ -55,6 +55,14 @@
                         style="margin-left: 20px">
                         <a class="nav-link" href="/admin/workLog">工作日志</a>
                     </li>
+                    <li @if(Request::is('admin/dailySay*'))
+                        class="nav-item active"
+                        @else
+                        class="nav-item"
+                        @endif
+                        style="margin-left: 20px">
+                        <a class="nav-link" href="/admin/dailySay">箴言</a>
+                    </li>
                 </ul>
             </div>
         @endauth

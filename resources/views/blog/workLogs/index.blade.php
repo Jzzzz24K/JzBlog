@@ -9,10 +9,10 @@
             <h3>记录每天的工作日志</h3>
         </div>
         <div class="row justify-content-center mt-5">
-            <h5>每日一语：</h5>
+            <h5>箴言：</h5>
         </div>
         <div class="row justify-content-center mt-3">
-            <h5>不同的人生，有不同的幸福。去发现你所拥有幸运，少抱怨上苍的不公，把握属于自己的幸福。你，我，我们大家都可以经历幸福的人生。</h5>
+            <h5 style="word-break: break-word;width: 500px; text-align: center">{{$daily_language->content}}</h5>
         </div>
     </div>
 @stop
@@ -24,16 +24,24 @@
                     <div class="col-md-2">
                         <time>{{$workLog['created_at']}}</time>
                     </div>
-                    @if(!empty($workLog['image']))
-                        <div class="col-md-3">
-                            <img src="{{$workLog['image']}}"  class="float-left img-thumbnail">
+                    <div class="col-md-10">
+                        <div class="row" style="display: flex;">
+                            @if(!empty($workLog['image']))
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <img src="{{$workLog['image']}}"  class="col-md-3 img-fluid">
+                                    </div>
+                                </div>
+                            @endif
                         </div>
-                    @endif
-                    <div class="col-md-7">
-                        <h5 style="word-break:break-all;">{{$workLog['content']}}</h5>
+                        <div class="row mt-5">
+                            <div class="col-md-7">
+                                <h5 style="word-break:break-all;">{{$workLog['content']}}</h5>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
+                <hr/>
             @endforeach
         </div>
     </div>
