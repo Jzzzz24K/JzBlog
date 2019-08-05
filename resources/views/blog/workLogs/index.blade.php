@@ -17,10 +17,25 @@
     </div>
 @stop
 @section('content')
-    @foreach($workLogs as $workLog)
-        <h5>{{$workLog['type']}}</h5>
-        <time>{{$workLog['created_at']}}</time>
-        <h3>{{$workLog['content']}}</h3>
-    @endforeach
+    <div class="worklog-body mt-5">
+        <div class="container">
+            @foreach($workLogs as $workLog)
+                <div class="row">
+                    <div class="col-md-2">
+                        <time>{{$workLog['created_at']}}</time>
+                    </div>
+                    @if(!empty($workLog['image']))
+                        <div class="col-md-3">
+                            <img src="{{$workLog['image']}}"  class="float-left img-thumbnail">
+                        </div>
+                    @endif
+                    <div class="col-md-7">
+                        <h5 style="word-break:break-all;">{{$workLog['content']}}</h5>
+                    </div>
+
+                </div>
+            @endforeach
+        </div>
+    </div>
 @stop
 

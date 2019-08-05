@@ -23,11 +23,11 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-center">类型</label>
                             <select class="custom-select col-sm-6" name="type">
-                                    <option selected>请选择</option>
-                                    <option value="1">primary</option>
-                                    <option value="2">success</option>
-                                    <option value="3">warning</option>
-                                    <option value="4">danger</option>
+                                <option selected>请选择</option>
+                                <option value="1">primary</option>
+                                <option value="2">success</option>
+                                <option value="3">warning</option>
+                                <option value="4">danger</option>
                             </select>
                         </div>
                         <div class="form-group row">
@@ -36,7 +36,7 @@
                                 <input type="file" name="image" class="custom-file-input" id="file" value="{{$image}}"/>
                                 <label class="custom-file-label" for="customFile">选择图片</label>
                             </div>
-                            <img class="col-ml-6 updateimg" src=""/>
+                            <img class="col-ml-6 updateimg" src="{{$image}}" style="height: 500px;width: 500px;"/>
                             <div id="updatebox">
 
                             </div>
@@ -90,3 +90,4 @@
     </script>
 
 @stop
+

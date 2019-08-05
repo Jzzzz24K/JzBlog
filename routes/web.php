@@ -35,6 +35,9 @@ Route::middleware('auth')->namespace('Admin')->group(function () {
     Route::delete('admin/upload/folder', 'UploadController@deleteFolder');
     Route::get('admin/workLog','WorkLogController@index');
     Route::get('admin/workLog/create','WorkLogController@create');
+    Route::post('admin/workLog/save','WorkLogController@save');
+    Route::delete('admin/workLog/delete','WorkLogController@delete');
+    Route::get('admin/workLog/edit','WorkLogController@edit');
 });
 
 

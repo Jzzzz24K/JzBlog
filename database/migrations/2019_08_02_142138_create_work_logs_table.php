@@ -17,7 +17,7 @@ class CreateWorkLogsTable extends Migration
             $table->increments('id');
             $table->text('content')->comment('内容');
             $table->enum('type',['primary','success','warning','danger'])->comment('日志类型，primary：普通；success:兴奋的；waring：注意(小问题)；danger:值得关注的（耗费半天以上的）');
-            $table->string('image',35)->nullable()->comment('插图');
+            $table->string('image',150)->nullable()->comment('插图');
             $table->integer('like_count')->default(0)->comment('点赞数');
             $table->timestamps();
         });

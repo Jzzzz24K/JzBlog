@@ -163,6 +163,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
 
+        Jacobcyl\AliOSS\AliOssServiceProvider::class,
     ],
 
     /*
