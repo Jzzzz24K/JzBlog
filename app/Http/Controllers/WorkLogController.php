@@ -14,7 +14,7 @@ class WorkLogController extends Controller
 
     public function index()
     {
-        $daily_language = DailySay::orderBy('created_at','desc')->first();
+        $daily_language = DailySay::orderBy('created_at','desc')->firstOrFail();
         $workLogs = WorkLog::all();
         return view('blog.workLogs.index',compact('workLogs','daily_language'));
     }
