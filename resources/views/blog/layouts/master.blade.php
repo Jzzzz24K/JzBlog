@@ -8,7 +8,6 @@
     <meta name="author" content="{{ config('blog.author') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? config('blog.title') }}</title>
-
     {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
@@ -17,8 +16,12 @@
     @if (Request::is('blog')) class="jz-body" @endif
 >
 <div
-    @if (Request::is('blog/*')) style="border-top:10px;border-style: solid;border-color:rgb(163,130,155);" @endif></div>
-<div @if (Request::is('workLog/index')) class="jz-worklog" @endif>
+    @if (Request::is('blog/*')) style="border-top:2px;border-style: solid;border-color:rgb(163,130,155);" @endif></div>
+<div
+    @if (Request::is('workLog/index')) class="jz-worklog"
+    @elseif(Request::is('blog/*')) class="jz-post"
+    @endif
+>
     @include('blog.partials.page-nav',$tags)
     @yield('page-header')
 </div>

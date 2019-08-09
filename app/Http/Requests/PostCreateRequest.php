@@ -3,7 +3,9 @@
 namespace App\Http\Requests;
 
 use Carbon\Carbon;
+use http\Env\Request;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PostCreateRequest extends FormRequest
 {
@@ -37,6 +39,10 @@ class PostCreateRequest extends FormRequest
     
     public function postData()
     {
+        if ($this->file('page_image')) {
+            $save = Storage::putFile('jzblog', $this->file('page_image'));
+            $url = Storage::url($save);
+        }
         $published_at = new Carbon($this->publish_date . ' ' . $this->publish_time);
 
         return [
@@ -46,7 +52,7 @@ class PostCreateRequest extends FormRequest
             'layout' => $this->layout,
             'meta_description' => $this->meta_description,
             'is_draft' => (bool)$this->is_draft,
-            'page_image' => $this->page_image,
+            'page_image' => $url,
             'published_at' => $published_at
         ];
     }

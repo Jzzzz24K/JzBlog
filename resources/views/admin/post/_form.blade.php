@@ -14,11 +14,14 @@
         </div>
         <div class="form-group row">
             <label for="page_image" class="col-sm-2 col-form-label text-center">缩略图</label>
-            <div class="col-sm-6">
-                <input type="text" name="page_image" class="form-control" id="page_image" value="{{$page_image}}">
+            <div class="input-group col-sm-6">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="page_image" id="page_image">
+                    <label class="custom-file-label" for="page_image">选择文件</label>
+                </div>
             </div>
             <div class="col-sm-4">
-                <img src="" class="img img_responsive"
+                <img src="{{$page_image}}" class="img img_responsive"
                      id="page-image-preview" style="max-height:40px">
             </div>
         </div>

@@ -32,7 +32,7 @@
                                 <tr>
                                     <td>{{$workLog->content}}</td>
                                     <td>{{$workLog->type}}</td>
-                                    <td>{{$workLog->image}}</td>
+                                    <td><img src="{{$workLog->image}}" style="max-width: 200px;"></td>
                                     <td>{{$workLog->like_count}}</td>
                                     <td>{{$workLog->created_at}}</td>
                                     <td>

@@ -17,33 +17,31 @@
     </div>
 @stop
 @section('content')
-    <div class="worklog-body mt-5">
-        <div class="container">
-            @foreach($workLogs as $workLog)
-                <div class="row">
-                    <div class="col-md-2">
-                        <time>{{$workLog['created_at']}}</time>
-                    </div>
-                    <div class="col-md-10">
-                        <div class="row" style="display: flex;">
-                            @if(!empty($workLog['image']))
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <img src="{{$workLog['image']}}"  class="col-md-3 img-fluid">
-                                    </div>
+    <div class="container bg-light">
+        @foreach($workLogs as $workLog)
+            <div class="row pt-5">
+                <div class="col-md-2">
+                    <time>{{$workLog['created_at']}}</time>
+                </div>
+                <div class="col-md-10">
+                    <div class="row" style="display: flex;">
+                        @if(!empty($workLog['image']))
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <img src="{{$workLog['image']}}" class="col-md-3 img-fluid">
                                 </div>
-                            @endif
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col-md-7">
-                                <h5 style="word-break:break-all;">{{$workLog['content']}}</h5>
                             </div>
+                        @endif
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-7">
+                            <h5 style="word-break:break-all;">{{$workLog['content']}}</h5>
                         </div>
                     </div>
                 </div>
-                <hr/>
-            @endforeach
-        </div>
+            </div>
+            <hr/>
+        @endforeach
     </div>
 @stop
 

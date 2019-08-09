@@ -1,6 +1,7 @@
 @extends('blog.layouts.master',[
   'title' => $post->title,
   'meta_description' => $post->meta_description ?? config('blog.description'),
+  'tags' => []
 ])
 
 
@@ -9,7 +10,7 @@
 
         .jz-post-header {
             {{--background-image: url("{{page_image($post->page_image)}}");--}}
-               background-size: cover;
+                 background-size: cover;
             background-attachment: fixed;
             background: no-repeat center center;
             background-attachment: scroll;
@@ -30,20 +31,26 @@
             background-repeat: no-repeat;
             opacity: 0.5;
         }
+        .jz-post {
+            height: 500px;
+            opacity: 0.7;
+            background-image: {{$post->page_image}};
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
     </style>
 @stop
-
 @section('page-header')
-
-    <div class="card border-0 jz-post-header">
-        <div class="title-image"> </div>
-        <div class="card-img-overlay" style="top:40%">
-                <h3 class="card-title text-center align-middle">{{$post->title}}</h3>
-                <h5 class="card-text text-center">{{$post->subtitle}}</h5>
-            </div>
+    <div class="container" style="margin-top:5rem;">
+        <div class="row justify-content-center mx-auto">
+            <h3>{{$post->title}}</h3>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <h5>{{$post->subtitle}}</h5>
+        </div>
 
     </div>
-
 @stop
 
 @section('content')
@@ -94,3 +101,4 @@
 
 
 @stop
+
