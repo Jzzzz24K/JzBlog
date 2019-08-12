@@ -33,33 +33,34 @@ class WorkLogController extends Controller
     public function save(Request $request)
     {
         if ($request->file('image')) {
-            $save = Storage::putFile('jzblog', $request->file('image'));
-            $url = Storage::url($save);
+            foreach($request->file('image') as $images){
+                $save = Storage::putFile('jzblog', $images);
+                $url[] = Storage::url($save);
+            }
         }
-
+        $url = implode(';',$url);
         $workLog = new WorkLog();
         $workLog->content = $request->post('content');
         $workLog->type = $request->post('type');
-        $workLog->image = $url??'';
+        $workLog->image = $url ?? '';
         $workLog->save();
-        return redirect('/admin/workLog')->with('success','工作日志新增成功');
+        return redirect('/admin/workLog')->with('success', '工作日志新增成功');
     }
 
     public function edit(Request $request)
     {
         $id = $request->input('id');
         $data = WorkLog::find($id);
-        foreach($this->fileds as $filed=>$default)
-        {
+        foreach ($this->fileds as $filed => $default) {
             $workLog[$filed] = $data->$filed;
         }
-        return view('admin.workLog.update',$workLog);
+        return view('admin.workLog.update', $workLog);
     }
 
     public function delete(Request $request)
     {
         $id = $request->input('id');
         WorkLog::destroy($id);
-        return back()->with('success','删除日志成功');
+        return back()->with('success', '删除日志成功');
     }
 }

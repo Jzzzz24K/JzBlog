@@ -28,7 +28,9 @@
                         @if(!empty($workLog['image']))
                             <div class="col-md-12">
                                 <div class="row">
-                                    <img src="{{$workLog['image']}}" class="col-md-3 img-fluid">
+                                    @foreach($workLog['image'] as $images)
+                                    <img src="{{$images}}" class="col-md-3 img-fluid">
+                                    @endforeach
                                 </div>
                             </div>
                         @endif

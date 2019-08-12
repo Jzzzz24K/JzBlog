@@ -21,7 +21,7 @@
                         <tr>
                             <th scope="col">内容</th>
                             <th scope="col">类型</th>
-                            <th scope="col">图片</th>
+{{--                            <th scope="col">图片</th>--}}
                             <th scope="col">点赞数量</th>
                             <th scope="col">创建时间</th>
                             <th scope="col">操作</th>
@@ -32,7 +32,7 @@
                                 <tr>
                                     <td>{{$workLog->content}}</td>
                                     <td>{{$workLog->type}}</td>
-                                    <td><img src="{{$workLog->image}}" style="max-width: 200px;"></td>
+{{--                                    <td><img src="{{$workLog->image}}" style="max-width: 200px;"></td>--}}
                                     <td>{{$workLog->like_count}}</td>
                                     <td>{{$workLog->created_at}}</td>
                                     <td>

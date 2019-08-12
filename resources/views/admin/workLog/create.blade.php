@@ -33,7 +33,7 @@
                         <div class="form-group row">
                             <label for="inputPassword3" class="col-sm-2 col-form-label text-center">图片</label>
                             <div class="custom-file col-sm-4">
-                                <input type="file" name="image" class="custom-file-input" id="file" value="{{$image}}"/>
+                                <input type="file" name="image[]" class="custom-file-input" id="file" value="{{$image}}" multiple />
                                 <label class="custom-file-label" for="customFile">选择图片</label>
                             </div>
                             <img class="col-ml-6 updateimg" src=""/>
