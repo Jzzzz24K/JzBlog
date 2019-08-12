@@ -34,7 +34,7 @@
         .jz-post {
             height: 500px;
             opacity: 0.7;
-            background-image: {{$post->page_image}};
+            background-image: url({{$post->page_image}});
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
