@@ -6,7 +6,7 @@
             <div class="col-md-10">
                 @foreach($posts  as $post)
                     <div class="card mt-md-5 bg-dark text-white border-0" id="card">
-                        <img class="card-img img-card" style="width: 100%"
+                        <img class="card-img img-card"
                              src="{{ page_image($post->page_image) }}" alt="Card image">
                         <div class="card-img-overlay">
                             <div class="card-text text-center jz-img-text">

@@ -17125,13 +17125,6 @@ footer .copyright {
   background-position: center center;
 }
 
-
-
-.worklog-image {
-  height: 200px;
-  width: 200px;
-}
-
 #card {
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -17148,8 +17141,6 @@ footer .copyright {
 }
 
 .img-card {
-  -o-object-fit: cover;
-     object-fit: cover;
   opacity: 0.8;
   overflow: hidden;
 }

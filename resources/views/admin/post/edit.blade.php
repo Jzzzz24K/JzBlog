@@ -20,7 +20,7 @@
                 @include('partials.errors')
                 @include('partials.success')
                 <div class="card-body">
-                    <form method="post" action="{{route('post.update',$id)}}">
+                    <form method="post" action="{{route('post.update',$id)}}" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         @include('admin.post._form')

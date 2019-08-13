@@ -29,6 +29,7 @@ class PostCreateRequest extends FormRequest
         return [
             //
             'title' => 'required',
+            'page_image'=>'required',
             'subtitle' => 'required',
             'content_raw' => 'required',
             'publish_date' => 'required',
@@ -39,9 +40,13 @@ class PostCreateRequest extends FormRequest
     
     public function postData()
     {
+//        dd($this->input());
         if ($this->file('page_image')) {
+
             $save = Storage::putFile('jzblog', $this->file('page_image'));
             $url = Storage::url($save);
+        }else{
+            $url = $this->input('page_image');
         }
         $published_at = new Carbon($this->publish_date . ' ' . $this->publish_time);
 
