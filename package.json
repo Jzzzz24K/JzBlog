@@ -35,6 +35,7 @@
         "ajv": "^6.6.1",
         "imagemin": "^6.0.0",
         "npm": "^6.4.1",
-        "open-iconic": "github:iconic/open-iconic"
+        "open-iconic": "github:iconic/open-iconic",
+        "simplemde": "^1.11.2"
     }
 }

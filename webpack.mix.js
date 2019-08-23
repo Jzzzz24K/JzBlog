@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css');
 
 if (mix.config.inProduction) {
     mix.version();
@@ -37,3 +37,5 @@ mix.combine([
     'node_modules/pickadate/lib/compressed/picker.date.js',
     'node_modules/pickadate/lib/compressed/picker.time.js'
 ], 'public/js/pickadate.min.js');
+
+mix.copy('node_modules/simplemde/dist/simplemde.min.js', 'public/js/simplemde.js');

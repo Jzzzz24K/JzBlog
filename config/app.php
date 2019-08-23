@@ -164,6 +164,7 @@ return [
         Mews\Captcha\CaptchaServiceProvider::class,
 
         Jacobcyl\AliOSS\AliOssServiceProvider::class,
+        SwooleTW\Http\LaravelServiceProvider::class,
     ],
 
     /*

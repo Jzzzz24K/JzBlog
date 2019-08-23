@@ -13,8 +13,7 @@ class Post extends Model
     protected $dates = ['published_at'];
     
     protected $fillable = [
-        'title','subtitle','page_image','content_raw','meta_description',
-        'is_draft','published_at','layout'
+        'title','page_image','content_raw','published_at','layout'
     ];
     
     public function setTitleAttribute($value)
@@ -109,7 +108,6 @@ class Post extends Model
         $query =
             static::where('published_at', '>', $this->published_at)
                 ->where('published_at', '<=', Carbon::now())
-                ->where('is_draft', 0)
                 ->orderBy('published_at', 'asc');
         if ($tag) {
             $query = $query->whereHas('tags', function ($q) use ($tag) {
@@ -130,7 +128,6 @@ class Post extends Model
     {
         $query =
             static::where('published_at', '<', $this->published_at)
-                ->where('is_draft', 0)
                 ->orderBy('published_at', 'desc');
         if ($tag) {
             $query = $query->whereHas('tags', function ($q) use ($tag) {

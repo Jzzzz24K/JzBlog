@@ -15,11 +15,8 @@ class PostController extends Controller
     
     protected $fieldList = [
         'title' => '',
-        'subtitle' => '',
         'page_image' => '',
         'content_raw' => '',
-        'meta_description' => '',
-        'is_draft' => "0",
         'publish_date' => '',
         'publish_time' => '',
         'layout' => 'blog.layouts.post',

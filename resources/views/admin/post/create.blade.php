@@ -3,6 +3,7 @@
 @section('style')
     <link href="{{ asset('css/pickadate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/selectize.default.css') }}" rel="stylesheet">
+    <link href="{{asset('css/simplemde.min.css')}}" rel="stylesheet">
 @stop
 
 @section('content')
@@ -40,6 +41,8 @@
 @section('script')
     <script src="{{ asset('js/pickadate.min.js') }}"></script>
     <script src="{{ asset('js/selectize.min.js') }}"></script>
+    <script src="{{ asset('/js/simplemde.js')}}"></script>
+
     <script>
         $(function() {
             $("#publish_date").pickadate({
@@ -51,6 +54,64 @@
             $("#tags").selectize({
                 create: true
             });
+
+        });
+        // Most options demonstrate the non-default behavior
+        var simplemde = new SimpleMDE({
+            autofocus: true,
+            autosave: {
+                enabled: true,
+                uniqueId: "editor01",
+                delay: 1000,
+            },
+            blockStyles: {
+                bold: "__",
+                italic: "_"
+            },
+            element: document.getElementById("editor"),
+            forceSync: true,
+            hideIcons: ["guide", "heading"],
+            indentWithTabs: false,
+            initialValue: "",
+            insertTexts: {
+                horizontalRule: ["", "\n\n-----\n\n"],
+                image: ["![](http://", ")"],
+                link: ["[", "](http://)"],
+                table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"],
+            },
+            lineWrapping: false,
+            parsingConfig: {
+                allowAtxHeaderWithoutSpace: true,
+                strikethrough: false,
+                underscoresBreakWords: true,
+            },
+            placeholder: "请使用Markdown 编写，图片只支持远程url。",
+            promptURLs: true,
+            renderingConfig: {
+                singleLineBreaks: false,
+                codeSyntaxHighlighting: true,
+            },
+            shortcuts: {
+                drawTable: "Cmd-Alt-T"
+            },
+            showIcons: ["code", "table"],
+            spellChecker: false,
+            status: false,
+            status: ["autosave", "lines", "words", "cursor"], // Optional usage
+            status: ["autosave", "lines", "words", "cursor", {
+                className: "keystrokes",
+                defaultValue: function(el) {
+                    this.keystrokes = 0;
+                    el.innerHTML = "0 Keystrokes";
+                },
+                onUpdate: function(el) {
+                    el.innerHTML = ++this.keystrokes + " Keystrokes";
+                }
+            }], // Another optional usage, with a custom status bar item that counts keystrokes
+            styleSelectedText: false,
+            maximumSelectionLength: 3,
+            tabSize: 4,
+            toolbarTips: true,
         });
     </script>
 @stop

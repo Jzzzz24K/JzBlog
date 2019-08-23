@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-light navbar-expand-md navbar-laravel sticky-top">
+    <nav class="navbar navbar-light navbar-expand-md navbar-laravel ">
         <a class="navbar-brand col-md-3" href="#">{{config('blog.title')}}后台</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

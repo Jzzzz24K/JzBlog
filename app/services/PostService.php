@@ -35,7 +35,6 @@ class PostService
             ->whereHas('tags', function($query) use ($tag) {
                 $query->where('tag', '=', $tag->tag);
             })
-            ->where('is_draft', 0)
             ->orderBy('published_at', $reverse_direction ? 'asc' : 'desc')
             ->simplePaginate(config('blog.posts_per_page'));
     
@@ -44,7 +43,6 @@ class PostService
     
         return [
             'title' => $tag->title,
-            'subtitle' => $tag->subtitle,
             'posts' => $post,
             'page_image' => $page_image,
             'tag' => $tag,
@@ -57,7 +55,6 @@ class PostService
     public function normalIndexData()
     {
         $posts = Post::where('published_at', '<', Carbon::now())
-            ->where('is_draft', 0)
             ->orderby('published_at', 'desc')
             ->simplePaginate(config('blog.pagesize'));
         return [

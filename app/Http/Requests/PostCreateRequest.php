@@ -30,7 +30,6 @@ class PostCreateRequest extends FormRequest
             //
             'title' => 'required',
             'page_image'=>'required',
-            'subtitle' => 'required',
             'content_raw' => 'required',
             'publish_date' => 'required',
             'publish_time' => 'required',
