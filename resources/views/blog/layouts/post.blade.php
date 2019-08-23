@@ -6,6 +6,7 @@
 
 
 @section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.css">
     <style>
 
         .jz-post-header {
@@ -39,6 +40,9 @@
             background-size: cover;
             background-position: center center;
         }
+        .article-back{
+            background: #fff;
+        }
     </style>
 @stop
 @section('page-header')
@@ -56,9 +60,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-8 col-md-8 mt-5 pt-5  article-back">
                 {{-- 文章详情 --}}
-                <article>
+                <article class="markdown-body">
                     {!! $post->content_html !!}
                 </article>
 
@@ -95,6 +99,11 @@
                         @endif
                     @endif
                 </div>
+            </div>
+            <div class="col-lg-4 col-md-3 mt-5 pt-5 ">
+                <card>
+                    其他相关文章
+                </card>
             </div>
         </div>
     </div>

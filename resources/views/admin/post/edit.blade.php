@@ -3,7 +3,7 @@
 @section('style')
     <link href="{{ asset('css/pickadate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/selectize.default.css') }}" rel="stylesheet">
-    <link href="{{asset('css/simplemde.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/simplemde.min.css') }}" rel="stylesheet">
 
 @stop
 

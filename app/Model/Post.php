@@ -73,10 +73,9 @@ class Post extends Model
     
     public function setContentRawAttribute($value)
     {
-        
         $this->attributes['content_raw'] = $value;
-        $markdown = new Markdowner();
-        $this->attributes['content_html'] = $markdown->toHTML($value);
+        $markdown = new \Parsedown();
+        $this->attributes['content_html'] = $markdown->text($value);
         
     }
     
@@ -105,8 +104,7 @@ class Post extends Model
     
     public function newerPost(Tag $tag = null)
     {
-        $query =
-            static::where('published_at', '>', $this->published_at)
+        $query = static::where('published_at', '>', $this->published_at)
                 ->where('published_at', '<=', Carbon::now())
                 ->orderBy('published_at', 'asc');
         if ($tag) {
