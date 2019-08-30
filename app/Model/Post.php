@@ -24,12 +24,6 @@ class Post extends Model
         }
     }
 
-//    public function getGdPageImageAttribute($value)
-//    {
-//        $img = Image::make($this->page_image)->resize(1000, 200);
-//        return $img->response('jpg');
-//    }
-    
     public function tags()
     {
         return $this->belongsToMany(Tag::class,'post_tag_pivot');
@@ -88,7 +82,6 @@ class Post extends Model
         }
         
         return $url;
-    
     }
     
     public function tagLinks($base = '/blog?tag=%TAG%')
@@ -124,8 +117,7 @@ class Post extends Model
      */
     public function olderPost(Tag $tag = null)
     {
-        $query =
-            static::where('published_at', '<', $this->published_at)
+        $query = static::where('published_at', '<', $this->published_at)
                 ->orderBy('published_at', 'desc');
         if ($tag) {
             $query = $query->whereHas('tags', function ($q) use ($tag) {
@@ -135,7 +127,4 @@ class Post extends Model
         
         return $query->first();
     }
-
-    
-    
 }

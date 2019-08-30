@@ -62,43 +62,14 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 mt-5 pt-5  article-back">
                 {{-- 文章详情 --}}
-                <article class="markdown-body">
+                <article class="markdown-body" style="padding-bottom: 20px">
                     {!! $post->content_html !!}
+                    <div class="justify-content-center">
+                        <img src="https://jingze.oss-cn-beijing.aliyuncs.com/jzblog/%E7%82%B9%E8%B5%9E.png" alt="点赞"
+                             class="rounded mx-auto d-block" style="max-width: 80px"
+                        />
+                    </div>
                 </article>
-
-                <hr>
-
-                {{-- 上一篇、下一篇导航 --}}
-                <div class="clearfix">
-                    {{-- Reverse direction --}}
-                    @if ($tag && $tag->reverse_direction)
-                        @if ($post->olderPost($tag))
-                            <a class="btn btn-primary float-left" href="{!! $post->olderPost($tag)->url($tag) !!}">
-                                ←
-                                Previous {{ $tag->tag }} Post
-                            </a>
-                        @endif
-                        @if ($post->newerPost($tag))
-                            <a class="btn btn-primary float-right" ref="{!! $post->newerPost($tag)->url($tag) !!}">
-                                Next {{ $tag->tag }} Post
-                                →
-                            </a>
-                        @endif
-                    @else
-                        @if ($post->newerPost($tag))
-                            <a class="btn btn-primary float-left" href="{!! $post->newerPost($tag)->url($tag) !!}">
-                                ←
-                                Newer {{ $tag ? $tag->tag : '' }} Post
-                            </a>
-                        @endif
-                        @if ($post->olderPost($tag))
-                            <a class="btn btn-primary float-right" href="{!! $post->olderPost($tag)->url($tag) !!}">
-                                Older {{ $tag ? $tag->tag : '' }} Post
-                                →
-                            </a>
-                        @endif
-                    @endif
-                </div>
             </div>
             <div class="col-lg-4 col-md-3 mt-5 pt-5 ">
                 <card>

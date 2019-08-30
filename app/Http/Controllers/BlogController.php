@@ -20,12 +20,6 @@ class BlogController extends Controller
         return view($layout, $data);
     }
     
-//    public function show($slug)
-//    {
-//        $data = Post::where('slug',$slug)->first();
-//        return view('blog.show',compact('data'));
-//    }
-    
     public function showPost($slug, Request $request)
     {
         $post = Post::with('tags')->where('slug', $slug)->firstOrFail();

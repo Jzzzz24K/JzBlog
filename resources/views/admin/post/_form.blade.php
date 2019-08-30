@@ -61,7 +61,7 @@
     <div class="col-md-12">
         <div class="form-group row">
             <div class="col-sm-12">
-                <textarea type="text" class="form-control" style="resize:none" rows="9" id="editor"
+                <textarea type="text" class="form-control" style="resize:none" rows="9" id=""
                           name="content_raw">
                     {{$content_raw}}
                 </textarea>
