@@ -46,8 +46,9 @@ Route::middleware('auth')->namespace('Admin')->group(function () {
     Route::post('admin/dailySay/save','DailySayController@save');
 });
 
-
 //登陆
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout');
+
+Route::get('searchtest','TestController@search');

@@ -19,7 +19,12 @@ class BlogController extends Controller
         $data['tags'] = Tag::all()->toArray();
         return view($layout, $data);
     }
-    
+
+    /**
+     * @param $slug
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showPost($slug, Request $request)
     {
         $post = Post::with('tags')->where('slug', $slug)->firstOrFail();
@@ -27,7 +32,26 @@ class BlogController extends Controller
         if ($tag) {
             $tag = Tag::where('tag', $tag)->firstOrFail();
         }
-        return view($post->layout, compact('post', 'tag'));
+
+        //全部标签
+        $tags = Tag::pluck('tag');
+
+        //其他相关文章
+        $post_tags = [];
+        foreach($post->tags as $item){
+            $post_tags[] = $item->tag;
+        }
+
+        //相关文章
+        $correlation_post = Post::where('published_at', '<', Carbon::now())
+            ->whereHas('tags', function($query) use ($post_tags) {
+                $query->whereIn('tag', $post_tags);
+            })
+            ->select('title','slug')
+            ->orderBy('published_at',  'desc')
+            ->take(5)->get();
+
+        return view($post->layout, compact('post', 'tag', 'tags','correlation_post'));
     }
 }
 
