@@ -82,9 +82,7 @@
                             <div class="col-md-8">
                                 其他相关文章
                             </div>
-                            <div class="col-md-4 text-right">
-                                <a href="" class="card-link">更多</a>
-                            </div>
+
                         </div>
                     </div>
                     <div class="">

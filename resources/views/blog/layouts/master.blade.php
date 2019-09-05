@@ -20,6 +20,7 @@
 <div
     @if (Request::is('workLog/index')) class="jz-worklog"
     @elseif(Request::is('blog/*')) class="jz-post"
+    @elseif(Request::is('series/*')) class="jz-series"
     @endif
 >
     @include('blog.partials.page-nav',$tags)
