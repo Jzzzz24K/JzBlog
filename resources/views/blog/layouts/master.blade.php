@@ -16,11 +16,10 @@
     @if (Request::is('blog')) class="jz-body" @endif
 >
 <div
-    @if (Request::is('blog/*')) style="border-top:2px;border-style: solid;border-color:rgb(163,130,155);" @endif></div>
-<div
-    @if (Request::is('workLog/index')) class="jz-worklog"
-    @elseif(Request::is('blog/*')) class="jz-post"
-    @elseif(Request::is('series/*')) class="jz-series"
+    @if (Request::is('workLog/index'))
+        class="jz-worklog"
+    @elseif(Request::is('series/*') || Request::is('blog/*'))
+        class="jz-nav-back"
     @endif
 >
     @include('blog.partials.page-nav',$tags)

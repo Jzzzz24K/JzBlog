@@ -17118,11 +17118,14 @@ footer .copyright {
 
 .jz-worklog {
   height: 500px;
-  opacity: 0.7;
   background-image: url("https://jingze.oss-cn-beijing.aliyuncs.com/jzblog/workLog.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+
+.jz-nav-back {
+  background: #a3829b;
 }
 
 #card {

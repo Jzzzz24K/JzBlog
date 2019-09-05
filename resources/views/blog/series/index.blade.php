@@ -3,13 +3,13 @@
     'tags'=>[],
 ])
 
-@section('styles')
-    <style>
-        .jz-series{
-            background: rgb(163,130,155);
-        }
-    </style>
-@stop
+{{--@section('styles')--}}
+{{--    <style>--}}
+{{--        .jz-series{--}}
+{{--            background: rgb(163,130,155);--}}
+{{--        }--}}
+{{--    </style>--}}
+{{--@stop--}}
 
 @section('content')
     <div class="container">
@@ -39,14 +39,6 @@
                     <div class="card-body">
                         <h5 class="card-title">swoole</h5>
                         <p class="card-text">收集php基础、面向对象、laravel、redis、nginx、mysql、linux方面的面试题</p>
-                        <p class="card-text" style="margin-bottom: 0;"><small class="text-white">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-
-                <div class="card col-md-3 mx-auto mt-5" id="card" style="min-width: 300px;max-height: 300px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">rd has even longer content than the first to show that equal height action.</p>
                         <p class="card-text" style="margin-bottom: 0;"><small class="text-white">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
