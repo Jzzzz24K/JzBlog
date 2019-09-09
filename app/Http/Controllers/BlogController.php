@@ -5,16 +5,25 @@ namespace App\Http\Controllers;
 use App\Model\Post;
 use App\Models\Tag;
 use App\services\PostService;
+use App\services\TagService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class BlogController extends Controller
 {
+    protected $postService;
+    protected $tagService;
+
+    public function __construct(PostService $postService,TagService $tagService){
+        $this->postService = $postService;
+        $this->tagService = $tagService;
+    }
+
     public function index(Request $request)
     {
         $tag = $request->get('tag');
-        $postService = new PostService($tag);
-        $data = $postService->lists();
+        $data = $this->postService->lists($tag);
         $layout = $tag ? Tag::layout($tag) : 'blog.layouts.index';
         $data['tags'] = Tag::all()->toArray();
         return view($layout, $data);
@@ -27,14 +36,11 @@ class BlogController extends Controller
      */
     public function showPost($slug, Request $request)
     {
-        $post = Post::with('tags')->where('slug', $slug)->firstOrFail();
-        $tag = $request->get('tag');
-        if ($tag) {
-            $tag = Tag::where('tag', $tag)->firstOrFail();
-        }
+        //获取文章详情
+        $post = $this->postService->getArticle($slug);
 
-        //全部标签
-        $tags = Tag::pluck('tag');
+        //获取全部标签
+        $tags = $this->tagService->getAllTags();
 
         //其他相关文章
         $post_tags = [];
@@ -43,15 +49,9 @@ class BlogController extends Controller
         }
 
         //相关文章
-        $correlation_post = Post::where('published_at', '<', Carbon::now())
-            ->whereHas('tags', function($query) use ($post_tags) {
-                $query->whereIn('tag', $post_tags);
-            })
-            ->select('title','slug')
-            ->orderBy('published_at',  'desc')
-            ->take(5)->get();
+       $correlation_post = $this->postService->getCorrelationArticles($post_tags);
 
-        return view($post->layout, compact('post', 'tag', 'tags','correlation_post'));
+        return view($post->layout, compact('post', 'tags','correlation_post'));
     }
 }
 

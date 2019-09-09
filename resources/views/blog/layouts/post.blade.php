@@ -13,27 +13,31 @@
         }
     </style>
 @stop
-@section('page-header')
-    <div class="container">
-        <div class="row justify-content-center mx-auto">
-            <h3>{{$post->title}}</h3>
-        </div>
-        <div class="row justify-content-center mt-5">
-            <h5>{{$post->subtitle}}</h5>
-        </div>
-
-    </div>
-@stop
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8 mt-5 pt-5  article-back">
+                {{--文章标题--}}
+                <div class="">
+                    <div class="row  justify-content-center ">
+                        <h3>{{$post->title}}</h3>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="font-weight-bold small p-2">
+                            阅读量:$viewCount
+                        </div>
+                        <div class="font-weight-bold small p-2">
+                            发布于:{{\Carbon\Carbon::parse($post->published_at)->toDateString()}}
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 {{-- 文章详情 --}}
                 <article class="markdown-body" style="padding-bottom: 20px">
                     {!! $post->content_html !!}
                     <div class="justify-content-center">
-                        <hr  style="background-color: rgb(163,130,155)">
+                        <hr style="background-color: rgb(163,130,155)">
 
                         <img src="https://jingze.oss-cn-beijing.aliyuncs.com/jzblog/%E7%82%B9%E8%B5%9E.png" alt="点赞"
                              class="rounded mx-auto d-block" style="max-width: 80px"
@@ -64,14 +68,15 @@
                 <div class="mt-5 container">
                     <div class="row">
                         <input type="text" class="form-control form-control-lg col-md-8" placeholder="全局搜索">
-                        <button class="btn col-md-4" style="border-radius:5px;padding: 0 0;background-color: rgb(163,130,155)"
+                        <button class="btn col-md-4"
+                                style="border-radius:5px;padding: 0 0;background-color: rgb(163,130,155)"
                                 type="button">
                             搜索
                         </button>
                     </div>
                 </div>
                 <div class="card mt-5">
-                    <div class="card-header"  style="background-color: rgb(163,130,155)">标签</div>
+                    <div class="card-header" style="background-color: rgb(163,130,155)">标签</div>
                     <div class="card-body">
                         @foreach($tags as $item)
                             <a href="/blog?tag={{$item}}" class="card-link">{{$item}}</a>

@@ -7,21 +7,21 @@ namespace App\services;
 use App\Model\Post;
 use Carbon\Carbon;
 use phpDocumentor\Reflection\DocBlock\Tag;
+use phpDocumentor\Reflection\Types\Object_;
 use Symfony\Component\VarDumper\Tests\Caster\MyArrayIterator;
 
 class PostService
 {
-    protected $tag;
-    
-    public function __construct($tag)
+    protected $post;
+    public function __construct(Post $post)
     {
-        $this->tag = $tag;
+        $this->post = $post;
     }
     
-    public function lists()
+    public function lists($tag)
     {
-        if($this->tag){
-            return $this->tagIndexData($this->tag);
+        if($tag){
+            return $this->tagIndexData($tag);
         }
         
         return $this->normalIndexData();
@@ -67,5 +67,27 @@ class PostService
             'reverse_direction' => false,
             'tag' => null,
         ];
+    }
+
+    //获取文章详情
+    public function getArticle($slug)
+    {
+        return $this->post::with('tags')->where('slug', $slug)->firstOrFail();
+    }
+
+    /**
+     * 获取相关文章
+     * @param array $post_tags
+     * @return mixed
+     */
+    public function getCorrelationArticles(array $post_tags)
+    {
+        return Post::where('published_at', '<', Carbon::now())
+            ->whereHas('tags', function($query) use ($post_tags) {
+                $query->whereIn('tag', $post_tags);
+            })
+            ->select('title','slug')
+            ->orderBy('published_at',  'desc')
+            ->take(5)->get();
     }
 }
